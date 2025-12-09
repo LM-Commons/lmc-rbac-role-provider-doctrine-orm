@@ -1,0 +1,29 @@
+name: Continuous Integration for docs
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./docs
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+  push:
+    paths:
+      - 'docs/**'
+jobs:
+  test-deploy:
+    name: Build Documentation pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: docs/yarn.lock
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test build website
+        run: yarn build

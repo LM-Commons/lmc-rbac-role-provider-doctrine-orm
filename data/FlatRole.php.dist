@@ -1,0 +1,106 @@
+<?php
+
+declare(strict_types=1);
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Laminas\Permissions\Rbac\RoleInterface;
+
+#[ORM\Entity]
+#[ORM\Table(name: 'roles')]
+class FlatRole implements RoleInterface
+{
+    #[ORM\Id]
+    #[ORM\Column(name: 'id', type: 'integer')]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    protected ?int $id;
+
+    #[ORM\Column(name: 'name', type: 'string', length: 255, unique: true)]
+    protected string $name = '';
+
+    #[ORM\ManyToMany(targetEntity: "Persmission", cascade: ["persist"], fetch: "EAGER", indexBy: "name")]
+    protected array|Collection|ArrayCollection $permissions;
+
+    /**
+     * Init the Doctrine collection
+     */
+    public function __construct()
+    {
+        $this->permissions = new ArrayCollection();
+    }
+
+    /**
+     * Get the role identifier
+     *
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the role name
+     *
+     * @param string $name
+     * @return void
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get the role name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function addPermission(string $name): void
+    {
+        $permission = new Permission($name);
+
+        $this->permissions[$name] = $permission;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function hasPermission(string $name): bool
+    {
+        return isset($this->permissions[$name]);
+    }
+
+    public function getChildren(): iterable
+    {
+        return [];
+    }
+
+    public function hasChildren(): bool
+    {
+        return false;
+    }
+
+    public function addChild(RoleInterface $child): void
+    {
+        // Do nothing
+    }
+
+    public function addParent(RoleInterface $parent): void
+    {
+        // Do nothing
+    }
+
+    public function getParents(): iterable
+    {
+        return [];
+    }
+}

@@ -1,0 +1,124 @@
+<?php
+
+declare(strict_types=1);
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Laminas\Permissions\Rbac\RoleInterface;
+
+#[ORM\Entity]
+#[ORM\Table(name: 'roles')]
+class HierarchicalRole implements RoleInterface
+{
+    #[ORM\Id]
+    #[ORM\Column(name: 'id', type: 'integer')]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    protected ?int $id = null;
+
+    #[ORM\Column(name: 'name', type: 'string', length: 255, unique: true)]
+    protected string $name = '';
+
+    #[ORM\ManyToMany(targetEntity: RoleInterface::class)]
+    protected array|Collection|ArrayCollection $children = [];
+
+    #[ORM\ManyToMany(targetEntity: Permission::class, fetch: 'EAGER', indexBy: 'name')]
+    protected array|Collection|ArrayCollection $permissions;
+
+    /**
+     * Init the Doctrine collection
+     */
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+        $this->permissions = new ArrayCollection();
+    }
+
+    /**
+     * Get the role identifier
+     *
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the role name
+     *
+     * @param string $name
+     * @return void
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get the role name
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param RoleInterface $child
+     * @return void
+     */
+    public function addChild(RoleInterface $child): void
+    {
+        $this->children[] = $child;
+    }
+
+    /**
+     * @param string|Permission $name
+     * @return void
+     */
+    public function addPermission(string|Permission $name): void
+    {
+        if (is_string($name)) {
+            $permission = new Permission($name);
+        }
+
+        $this->permissions[(string) $name] = $permission;
+    }
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasPermission(string $name): bool
+    {
+        // This can be a performance problem if your role has a lot of permissions. Please refer
+        // to the cookbook to an elegant way to solve this issue
+
+        return isset($this->permissions[$name]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getChildren(): iterable
+    {
+        return $this->children;
+    }
+
+    public function hasChildren(): bool
+    {
+        return ! $this->children->isEmpty();
+    }
+
+    public function addParent(RoleInterface $parent): void
+    {
+        // Do nothing
+    }
+
+    public function getParents(): iterable
+    {
+        return [];
+    }
+}

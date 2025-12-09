@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Laminas\Permissions\Rbac\RoleInterface;
 use Override;
 
+use function count;
+
 #[ORM\Entity]
 #[ORM\Table(name: 'roles')]
 final class Role implements RoleInterface

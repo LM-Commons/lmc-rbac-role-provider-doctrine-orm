@@ -15,7 +15,6 @@ use LmcTest\Rbac\Role\Doctrine\Asset\RoleFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 #[CoversClass(ObjectRepositoryRoleProviderFactory::class)]

@@ -15,6 +15,7 @@
     </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[getId]]></code>
+      <code><![CDATA[hasChildren]]></code>
     </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$id]]></code>

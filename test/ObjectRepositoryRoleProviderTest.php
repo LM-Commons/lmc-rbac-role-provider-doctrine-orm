@@ -24,6 +24,9 @@ use PHPUnit\Framework\TestCase;
 
 use function count;
 use function is_array;
+use function sys_get_temp_dir;
+
+use const PHP_VERSION_ID;
 
 #[CoversClass(ObjectRepositoryRoleProvider::class)]
 final class ObjectRepositoryRoleProviderTest extends TestCase
@@ -280,10 +283,17 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
 
     private function getObjectManager(): ObjectManager|EntityManager
     {
-        $config        = ORMSetup::createAttributeMetadataConfiguration(
+        $config = ORMSetup::createAttributeMetadataConfiguration(
             paths: [__DIR__ . '/Asset'],
             isDevMode: true
         );
+
+        if (PHP_VERSION_ID >= 80400) {
+            $config->enableNativeLazyObjects(true);
+            $config->setProxyDir(sys_get_temp_dir());
+            $config->setProxyNamespace('Proxies');
+        }
+
         $connection    = DriverManager::getConnection([
             'driverClass' => Driver::class,
             'memory'      => true,

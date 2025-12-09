@@ -296,8 +296,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
 
         $connection    = DriverManager::getConnection([
             'driverClass' => Driver::class,
-            'path'        => __DIR__ . '/../build/test.db',
-            'memory'      => false,
+            'memory'      => true,
             'dbname'      => 'test',
         ], $config);
         $entityManager = new EntityManager($connection, $config);

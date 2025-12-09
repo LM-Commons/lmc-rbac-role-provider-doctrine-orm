@@ -97,4 +97,9 @@ final class Role implements RoleInterface
     {
         return [];
     }
+
+    public function hasChildren(): bool
+    {
+        return count($this->children->getValues()) > 0;
+    }
 }

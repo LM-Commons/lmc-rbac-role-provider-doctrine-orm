@@ -1,6 +1,6 @@
 # Doctrine ORM Role Provider for LmcRbac
 
-[![Build](https://github.com/lm-commons/lmc-rbac-role-provider-doctrince-orm/actions/workflows/build_test.yml/badge.svg)](https://github.com/lm-commons/lmc-rbac-role-provider-doctrince-orm/actions/workflows/build_test.yml)
+[![Build](https://github.com/lm-commons/lmc-rbac-role-provider-doctrine-orm/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/lm-commons/lmc-rbac-role-provider-doctrine-orm/actions/workflows/continuous-integration.yml)
 [![Version](https://poser.pugx.org/lm-commons/lmc-rbac-role-provider-doctrine-orm/v)](https://packagist.org/packages/lm-commons/lmc-rbac-role-provider-doctrine-orm)
 [![Total Downloads](https://poser.pugx.org/lm-commons/lmc-rbac-role-provider-doctrine-orm/downloads)](//packagist.org/packages/lm-commons/lmc-rbac-role-provider-doctrine-orm)
 [![License](https://poser.pugx.org/lm-commons/lmc-rbac-role-provider-doctrine-orm/license)](https://packagist.org/packages/lm-commons/)

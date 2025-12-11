@@ -32,6 +32,10 @@ Customize the module by copy-pasting the `config.global.php` file to your
 You can also find some Doctrine entities in the [/data](/data) folder that will
 help you to more quickly take advantage of LmcRbac.
 
+## Documentation
+
+Documentation can be found in the LmcRbac [documentation](https://lm-commons.github.io/LmcRbac/docs/roles/object-repository-role-provider-doctrine)
+
 ## Support
 
 - File issues at on [github](https://github.com/LM-Commons/lmc-rbac-role-provider-doctrine-orm/issues).

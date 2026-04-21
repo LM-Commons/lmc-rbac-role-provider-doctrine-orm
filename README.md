@@ -11,7 +11,7 @@ Doctrine ORM Role Provider for LmcRbac.
 
 ## Requirements
 
-- PHP 8.2 or higher
+- PHP 8.3 or higher
 - LmcRbac 2.0 or higher
 - Doctrine ORM 3.0 or higher
 
@@ -25,18 +25,15 @@ Install the package:
 $ php composer.phar require lm-commons/lmc-rbac-role-provider-doctrine-orm
 ```
 
-Enable the module by adding `LmcRbac` key to your `application.config.php` file.
-Customize the module by copy-pasting the `config.global.php` file to your
-`config/autoload` folder.
-
-You can also find some Doctrine entities in the [/data](/data) folder that will
-help you to more quickly take advantage of LmcRbac.
+You can find some Doctrine entities in the [/data](/data) folder that will
+help you to more quickly take advantage of LmcRbacRoleProviderDoctrineORM.
 
 ## Documentation
 
-Documentation can be found in the LmcRbac [documentation](https://lm-commons.github.io/LmcRbac/docs/roles/object-repository-role-provider-doctrine)
+Browse the documentation online at
+[LM-Commons](https://lm-commons.github.io/lmc-authentication/).
 
 ## Support
 
 - File issues at on [github](https://github.com/LM-Commons/lmc-rbac-role-provider-doctrine-orm/issues).
-- Ask questions on [the LM-Commons Discord](https://discord.gg/nAAu7AhR).
+- Ask questions on the [LM-Commons Discord](https://discord.gg/nAAu7AhR).

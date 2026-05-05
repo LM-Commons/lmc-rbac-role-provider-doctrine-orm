@@ -12,3 +12,5 @@ On the other hand, the hierarchical role is much more flexible, and prevent you 
 into all roles.
 
 It really depends on your application.
+
+The sample `Role.php.dist` will meet most use cases.

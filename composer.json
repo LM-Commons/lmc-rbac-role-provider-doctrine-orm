@@ -21,6 +21,9 @@
     "symfony/cache": "^7.0 || ^8.0",
     "vimeo/psalm": "^6.13"
   },
+  "suggest": {
+    "doctrine/orm": "Needed to use lmc-rbac-role-provided-doctrine-orm. Doctrine will require further packages"
+  },
   "autoload": {
     "psr-4": {
       "Lmc\\Rbac\\Role\\Doctrine\\": "src/"

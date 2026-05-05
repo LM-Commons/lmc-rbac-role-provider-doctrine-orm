@@ -19,7 +19,7 @@ class FlatRole implements RoleInterface
     #[ORM\Column(name: 'name', type: 'string', length: 255, unique: true)]
     protected string $name = '';
 
-    #[ORM\ManyToMany(targetEntity: "Persmission", cascade: ["persist"], fetch: "EAGER", indexBy: "name")]
+    #[ORM\ManyToMany(targetEntity: "Permission", cascade: ["persist"], fetch: "EAGER", indexBy: "name")]
     protected array|Collection|ArrayCollection $permissions;
 
     /**

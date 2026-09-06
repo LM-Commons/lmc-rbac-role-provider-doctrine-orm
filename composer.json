@@ -17,7 +17,7 @@
     "doctrine/orm": "^3.5.8",
     "laminas/laminas-coding-standard": "^3.1",
     "phpunit/phpunit": "^11.5.42",
-    "psalm/plugin-phpunit": "^0.19.5",
+    "psalm/plugin-phpunit": "^0.20.0",
     "symfony/cache": "^7.0 || ^8.0",
     "vimeo/psalm": "^6.13"
   },

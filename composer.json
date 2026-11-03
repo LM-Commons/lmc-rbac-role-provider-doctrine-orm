@@ -19,7 +19,7 @@
     "phpunit/phpunit": "^11.5.42",
     "psalm/plugin-phpunit": "^0.19.5",
     "symfony/cache": "^7.0 || ^8.0",
-    "vimeo/psalm": "^6.13"
+    "vimeo/psalm": "^7.0"
   },
   "suggest": {
     "doctrine/orm": "Needed to use lmc-rbac-role-provided-doctrine-orm. Doctrine will require further packages"

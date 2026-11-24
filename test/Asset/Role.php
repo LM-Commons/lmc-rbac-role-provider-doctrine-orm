@@ -19,7 +19,8 @@ final class Role implements RoleInterface
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
-    private ?int $id;
+    /** @psalm-suppress UnusedProperty Set by Doctrine via reflection */
+    private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 32, unique: true)]
     private ?string $name;

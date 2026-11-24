@@ -31,7 +31,12 @@ use const PHP_VERSION_ID;
 #[CoversClass(ObjectRepositoryRoleProvider::class)]
 final class ObjectRepositoryRoleProviderTest extends TestCase
 {
-    /** @return array<array-key, array<array-key, mixed>> */
+    /**
+     * @return array<string, array{
+     *     rolesConfig: array<array-key, string|array{children?: list<string>, permissions?: list<string>}>,
+     *     rolesToCheck: list<string>
+     * }>
+     */
     public static function roleProvider(): array
     {
         return [
@@ -141,6 +146,8 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
     }
 
     /**
+     * @param array<array-key, string|array{children?: list<string>, permissions?: list<string>}> $rolesConfig
+     * @param list<string> $rolesToCheck
      * @throws OptimisticLockException
      * @throws ORMException
      */
@@ -189,7 +196,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $i = 0;
         foreach ($roles as $role) {
             $this->assertInstanceOf(RoleInterface::class, $role);
-            $this->assertEquals($rolesToCheck[$i], $role->getName());
+            $this->assertSame($rolesToCheck[$i], $role->getName());
             $i++;
         }
     }
@@ -225,7 +232,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $this->assertIsArray($roles);
 
         $this->assertInstanceOf(RoleInterface::class, $roles[0]);
-        $this->assertEquals('admin', $roles[0]->getName());
+        $this->assertSame('admin', $roles[0]->getName());
         $this->assertTrue($roles[0]->hasPermission('manage'));
         $this->assertTrue($roles[0]->hasPermission('read'));
         $this->assertTrue($roles[0]->hasPermission('write'));
@@ -269,7 +276,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $this->assertIsArray($roles);
 
         $this->assertInstanceOf(RoleInterface::class, $roles[0]);
-        $this->assertEquals('admin', $roles[0]->getName());
+        $this->assertSame('admin', $roles[0]->getName());
 
         $childRolesString = '';
 
@@ -278,7 +285,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
             $childRolesString .= $childRole->getName();
         }
 
-        $this->assertEquals('memberguest', $childRolesString);
+        $this->assertSame('memberguest', $childRolesString);
     }
 
     private function getObjectManager(): ObjectManager|EntityManager

@@ -74,7 +74,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $provider         = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
         $result           = [$memberRole];
 
@@ -90,7 +90,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $provider         = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
         $result           = [$memberRole];
 
@@ -108,7 +108,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $provider         = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
         $result           = [$memberRole];
 
@@ -178,7 +178,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $objectRepositoryRoleProvider = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
 
         $roles = $objectRepositoryRoleProvider->getRoles($rolesToCheck);
@@ -215,7 +215,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $objectRepositoryRoleProvider = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
 
         // Get only the role
@@ -259,7 +259,7 @@ final class ObjectRepositoryRoleProviderTest extends TestCase
         $objectRepositoryRoleProvider = new ObjectRepositoryRoleProvider(
             $objectRepository,
             'name',
-            $this->createMock(RoleFactoryInterface::class)
+            $this->createStub(RoleFactoryInterface::class)
         );
 
         // Get only the admin role

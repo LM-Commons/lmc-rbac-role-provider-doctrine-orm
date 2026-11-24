@@ -36,7 +36,7 @@ final class ObjectRepositoryRoleProviderFactoryTest extends TestCase
                 ],
             ],
         ]));
-        $container->setService('RoleObjectRepository', $this->getMockBuilder(ObjectRepository::class)->getMock());
+        $container->setService('RoleObjectRepository', $this->createStub(ObjectRepository::class));
         $container->setService(RoleFactory::class, new RoleFactory());
 
         $roleProvider = (new ObjectRepositoryRoleProviderFactory())($container);
@@ -64,7 +64,7 @@ final class ObjectRepositoryRoleProviderFactoryTest extends TestCase
         $objectManager->expects($this->once())
             ->method('getRepository')
             ->with('Role')
-            ->willReturn($this->getMockBuilder(ObjectRepository::class)->getMock());
+            ->willReturn($this->createStub(ObjectRepository::class));
 
         $container->setService('ObjectManager', $objectManager);
         $container->setService(RoleFactory::class, new RoleFactory());

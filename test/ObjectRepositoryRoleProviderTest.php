@@ -31,7 +31,7 @@ use const PHP_VERSION_ID;
 #[CoversClass(ObjectRepositoryRoleProvider::class)]
 final class ObjectRepositoryRoleProviderTest extends TestCase
 {
-    /** @return iterable<array-key, array<array-key, mixed>>  */
+    /** @return array<array-key, array<array-key, mixed>> */
     public static function roleProvider(): array
     {
         return [

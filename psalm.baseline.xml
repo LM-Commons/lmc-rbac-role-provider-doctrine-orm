@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51">
+<files psalm-version="7.17.0@b5ea40db593f3acc7a4a20cc1a9bd338ce3bd405">
   <file src="test/Asset/Permission.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[getId]]></code>
     </PossiblyUnusedMethod>
-    <PropertyNotSetInConstructor>
+    <PossiblyUnusedProperty>
       <code><![CDATA[$id]]></code>
-    </PropertyNotSetInConstructor>
+    </PossiblyUnusedProperty>
   </file>
   <file src="test/Asset/Role.php">
     <MixedReturnTypeCoercion>
@@ -17,17 +17,14 @@
       <code><![CDATA[getId]]></code>
       <code><![CDATA[hasChildren]]></code>
     </PossiblyUnusedMethod>
-    <PropertyNotSetInConstructor>
+    <UnusedProperty>
       <code><![CDATA[$id]]></code>
-    </PropertyNotSetInConstructor>
+    </UnusedProperty>
   </file>
   <file src="test/ObjectRepositoryRoleProviderTest.php">
     <MixedArgument>
       <code><![CDATA[$role->getChildren()]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$rolesToCheck]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$role]]></code>
     </MixedAssignment>
@@ -35,10 +32,6 @@
       <code><![CDATA[getChildren]]></code>
       <code><![CDATA[hasChildren]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testObjectRepositoryProviderForRole]]></code>
-      <code><![CDATA[testObjectRepositoryProviderForRole]]></code>
-    </PossiblyInvalidArgument>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
       <code><![CDATA[assertIsArray]]></code>

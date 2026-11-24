@@ -13,7 +13,8 @@ final class Permission
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
-    protected ?int $id;
+    /** @psalm-suppress PossiblyUnusedProperty Set by Doctrine via reflection */
+    protected ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 128, unique: true)]
     protected ?string $name;
